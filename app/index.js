@@ -20,4 +20,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname))
 
+require('./course').init(app)
+require('./admin').init(app)
+
 module.exports = app
