@@ -1,11 +1,7 @@
-var express = require('express');
-
-var http = require('http');
-var path = require('path');
-
+const express = require('express');
+const path = require('path');
 const exphbs = require('express-handlebars')
-
-var app = express();
+const app = express();
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
