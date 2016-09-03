@@ -20,6 +20,10 @@
   "devDependencies": {
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-sass": "^2.3.2",
     "jade": "^1.11.0"
   }
 }
