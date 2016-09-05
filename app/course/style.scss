@@ -1,0 +1,54 @@
+.course-toc {
+	.course-introduction {
+		padding: 30px;
+
+		.course-image {
+
+		}
+
+		.course-name {
+			margin-top: 20px;
+			font-size: 2em;
+		}
+
+		.course-explanation {
+			margin-top: 15px;
+			font-size: 1.5em;
+		}
+
+		.course-start {
+			margin-top: 20px;
+		}
+	}
+
+	.unit-title-wrap {
+		padding: 10px 0;
+		font-size: 1.3em;
+		
+		.unit-number {
+			font-weight: bold;
+			margin-right: 10px;
+		}
+	}
+
+	.module-wrap {
+		padding: 8px;
+		
+		.module-title-wrap {
+			font-size: 1.1em;
+
+			.module-type {
+				margin-right: 8px;
+			}
+
+			.module-title {
+
+			}
+		}
+
+		.module-explanation {
+			font-size: 0.9em;
+			margin-top: 5px;
+		}
+	}
+}
