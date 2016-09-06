@@ -18,12 +18,17 @@
   },
   "homepage": "https://github.com/sainthkh/koreancademy#readme",
   "devDependencies": {
-    "express": "^4.14.0",
-    "express-handlebars": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat-css": "^2.3.0",
-    "gulp-sass": "^2.3.2",
-    "jade": "^1.11.0"
+    "gulp-sass": "^2.3.2"
+  },
+  "dependencies": {
+    "connect-redis": "^3.1.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.14.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }
