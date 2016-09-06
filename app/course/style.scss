@@ -1,29 +1,43 @@
 .course-toc {
 	.course-introduction {
 		padding: 30px;
+		border-bottom: 1px solid #eee;
 
 		.course-image {
-
+			max-width: 120px;
+			max-height: 120px;
+			display: block;
+			margin: 0 auto;
 		}
 
 		.course-name {
 			margin-top: 20px;
-			font-size: 2em;
+			font-size: 2.8em;
 		}
 
 		.course-explanation {
 			margin-top: 15px;
-			font-size: 1.5em;
+			font-size: 1.2em;
 		}
 
 		.course-start {
 			margin-top: 20px;
 		}
 	}
+	$units-bg: #e5e7f6;
+	.course-units {
+		background-color: $units-bg;
+		padding: 40px 0 20px;
+
+		.course-unit {
+			margin-bottom: 40px;
+		}
+	}
 
 	.unit-title-wrap {
 		padding: 10px 0;
-		font-size: 1.3em;
+		font-size: 1.5em;
+		text-align: center;
 		
 		.unit-number {
 			font-weight: bold;
@@ -32,13 +46,34 @@
 	}
 
 	.module-wrap {
-		padding: 8px;
+		$bg: #fff;
+		padding: 25px 8px;
+		background-color: $bg;
+		margin-bottom: 4px;
+
+		&:hover {
+			background-color: #5f0494;
+			color: #fff;
+		}
 		
+		.progress {
+			font-size: 1.7em;
+			width: 2.4em;
+			height: 2.4em;
+			line-height: 2.4em;
+			border-radius: 50%;
+			color: #a46fc3;
+			background-color: $units-bg;
+			text-align: center;
+			margin: auto;
+		}
+
 		.module-title-wrap {
-			font-size: 1.1em;
+			font-size: 1.3em;
 
 			.module-type {
 				margin-right: 8px;
+				color: #999;
 			}
 
 			.module-title {
@@ -47,7 +82,7 @@
 		}
 
 		.module-explanation {
-			font-size: 0.9em;
+			font-size: 1em;
 			margin-top: 5px;
 		}
 	}
