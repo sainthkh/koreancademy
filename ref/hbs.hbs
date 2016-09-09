@@ -1,0 +1,38 @@
+{{exp}}
+{{{no_escape}}}
+
+{{#list people}}
+	{{first_name}} {{last_name}} //should use hbs.registerHelper.
+{{/list}}
+hbs.registerHelper('name', function(a1, a2){
+	return hbs.SafeString('')
+})
+
+{{! comment}}
+
+{{> partial_name arg="val"}}
+hbs.registerPartial('name', "hbs_code")
+
+{{> (dynamic partial)}}
+{{> partial context}}
+
+{{#> partial}}
+	Content
+	{{>@partial-block}}
+{{/partial}}
+
+{{#with a}} // remove a from a.b
+{{#with a as b}}
+{{#with a}}
+{{else}}
+	empty
+{{/with}}
+
+{{#each c as |v k|}} // iterate array a
+{{else}}
+	empty
+{{/each}}
+
+{{#if cond}} // false, undefined, null, "", 0, [] -> false
+{{else}}
+{{/if}}

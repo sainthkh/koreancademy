@@ -1,0 +1,16 @@
+db.serialize(function() {
+	db.run("sql_code") // CREATE
+
+	var stmt = db.prepare("insert/delete etc (?)")
+
+	stmt.run(vals)
+
+	db.each("select", function(err, row) {
+	})
+})
+
+select * from table where ...
+insert into table values ...
+update table set ... where ...
+delete from table where ...
+
