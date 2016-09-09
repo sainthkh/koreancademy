@@ -35,5 +35,6 @@ app.set('views', path.join(__dirname))
 
 require('./course').init(app)
 require('./admin').init(app)
+require('./user').init(app)
 
 module.exports = app
