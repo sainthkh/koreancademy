@@ -20,3 +20,5 @@ m.add_new_user = function(email, pw_hash, nickname) {
 		stmt.run(email, pw_hash, nickname, 'free')
 	})
 }
+
+module.exports = m
