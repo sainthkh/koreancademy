@@ -4,15 +4,13 @@ const db = new sqlite3.Database(path.join(__dirname, "../assets/data.db"));
 
 var m = {}
 
-m.get_user_by_id = function(id) {
+m.get_user_by_id = function(id, callback) {
 	var user = {}
 	db.serialize(function(){
 		db.get("select * from users where id=(?)", id, function(err, row){
-			user = row
+			callback(err, row)
 		})
 	})
-
-	return user
 }
 
 m.add_new_user = function(email, pw_hash, nickname) {
