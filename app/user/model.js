@@ -2,7 +2,7 @@ const db = require('../database.js')
 
 var m = {}
 
-m.get_user_by_id = function(id, callback) {
+m.get_by_id = function(id, callback) {
 	var user = {}
 	db.serialize(function(){
 		db.get("select * from users where id=(?)", id, function(err, row){
@@ -11,7 +11,7 @@ m.get_user_by_id = function(id, callback) {
 	})
 }
 
-m.add_new_user = function(email, pw_hash, nickname) {
+m.add = function(email, pw_hash, nickname) {
 	db.serialize(function() {
 		var stmt = db.prepare('insert into users(email, password_hash, nickname, access_level) values (?,?,?,?)')
 
