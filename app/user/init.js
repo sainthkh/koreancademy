@@ -1,17 +1,18 @@
 const passport = require('passport')
 
 function initUser (app) {
-  app.get('/login', renderLogin)
-  app.get('/signup', renderSignup)
-  app.get('/user/:id', passport.authenticationMiddleware(), renderUserHome)
-  app.post('/login', passport.authenticate('local', {
-    successRedirect: '/profile',
-    failureRedirect: '/'
-  }))
+	app.get('/login', renderLogin)
+	app.get('/signup', renderSignup)
+	
+	app.get('/user/:id', passport.authenticationMiddleware(), renderUserHome)
+	app.post('/login', passport.authenticate('local', {
+		successRedirect: '/profile',
+		failureRedirect: '/'
+	}))
 }
 
 function renderLogin (req, res) {
-  res.render('user/login')
+	res.render('user/login')
 }
 
 function renderSignup (req, res) {
@@ -19,9 +20,9 @@ function renderSignup (req, res) {
 }
 
 function renderUserHome (req, res) {
-  res.render('user/home', {
-    username: req.user.username
-  })
+	res.render('user/home', {
+		username: req.user.username
+	})
 }
 
 module.exports = initUser
