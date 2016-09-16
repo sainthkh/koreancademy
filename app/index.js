@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars')
+const hbsHelpers = require('handlebars-helpers')
 const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
 
@@ -23,12 +24,15 @@ app.use(session({
   saveUninitialized: false
 }))
 
-app.engine('.hbs', exphbs({
+var hbs = exphbs.create({
   defaultLayout: 'layout',
   extname: '.hbs',
   layoutsDir: path.join(__dirname),
   partialsDir: path.join(__dirname)
-}))
+})
+hbs.helpers = hbsHelpers({hbs:hbs.handlebars}) 
+
+app.engine('.hbs', hbs.engine)
 
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname))
