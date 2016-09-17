@@ -59,7 +59,7 @@ function postSignup(req, res) {
 	function(err, results){
 		function passAll(results) {
 			for(var i = 0; i < results.length; i++){
-				if (!results[i]) return false
+				if (results[i]) return false
 			}
 			return true
 		}
