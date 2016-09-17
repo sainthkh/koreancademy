@@ -104,6 +104,8 @@ function postSignup(req, res) {
 		}
 
 		if (passAll(results)) {
+			const model = require('./model')
+			model.add(req.body.email, req.body.password, req.body.username)
 			res.redirect("/activate-your-account")
 		} else {
 			res.render('user/signup', {
