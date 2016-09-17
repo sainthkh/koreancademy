@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyparser = require('body-parser')
 const path = require('path');
 const exphbs = require('express-handlebars')
 const hbsHelpers = require('handlebars-helpers')
@@ -9,6 +10,8 @@ const config = require('../config')
 const app = express();
 
 app.use(express.static('assets'))
+app.use(bodyparser.urlencoded({ extended: false }))
+app.use(bodyparser.json())
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
