@@ -1,4 +1,6 @@
 const db = require('../database')
+const config = require('../../config')
+const md5 = require('js-md5')
 
 var m = {}
 
@@ -11,12 +13,16 @@ m.get_by_id = function(id, callback) {
 	})
 }
 
-m.add = function(email, pw_hash, nickname) {
+m.add = function(email, password, nickname) {
 	db.serialize(function() {
 		var stmt = db.prepare('insert into users(email, password_hash, nickname, access_level) values (?,?,?,?)')
 
-		stmt.run(email, pw_hash, nickname, 'free')
+		stmt.run(email, m.password_hash(password), nickname, 'non-active')
 	})
+}
+
+m.password_hash = function(password) {
+	return md5(config.user.secret + password)
 }
 
 module.exports = m

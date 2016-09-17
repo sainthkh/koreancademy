@@ -5,4 +5,8 @@ config.redisStore = {
   secret: 'test value'
 }
 
+config.user = {
+  password_secret: '1234'
+}
+
 module.exports = config
