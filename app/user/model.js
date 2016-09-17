@@ -13,6 +13,14 @@ m.get_by_id = function(id, callback) {
 	})
 }
 
+m.get_by_email = function(email, callback) {
+	db.serialize(function(){
+		db.get("select * from users where email=(?)", email, function(err, row){
+			callback(err, row)
+		})
+	})
+}
+
 m.add = function(email, password, nickname) {
 	db.serialize(function() {
 		var stmt = db.prepare('insert into users(email, password_hash, nickname, access_level) values (?,?,?,?)')

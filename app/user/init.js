@@ -5,8 +5,11 @@ const path = require('path')
 
 function initUser (app) {
 	app.get('/login', renderLogin)
+	app.post('/login', postLogin)
+
 	app.get('/signup', renderSignup)
 	app.post('/signup', postSignup)
+	
 	app.get('/user/:id', passport.authenticationMiddleware(), renderUserHome)
 	app.post('/login', passport.authenticate('local', {
 		successRedirect: '/profile',
@@ -16,6 +19,42 @@ function initUser (app) {
 
 function renderLogin (req, res) {
 	res.render('user/login')
+}
+
+function postLogin(req, res) {
+	const db = require('../database')
+	async.parallel([
+		function(callback) {
+			db.serialize(function(){
+				const model = require('./model')
+				model.get_by_email(req.body.email, function(err, user){
+					if (user) {
+						if(model.password_hash(req.body.password) == user.password_hash) {
+							callback()
+						} else {
+							callback("wrong password")
+						}
+					} else {
+						callback("no account")
+					}
+				})
+			})
+		}
+	],
+	function(err, results) {
+		if (!err) {
+			if (!req.redirect) {
+				req.redirect = '/'
+			}
+			res.redirect(req.redirect)
+		} else {
+			res.render('user/login', {
+				email: req.body.email,
+
+				error: err == "no account" || err == "wrong password"
+			})
+		}
+	})
 }
 
 function renderSignup (req, res) {
