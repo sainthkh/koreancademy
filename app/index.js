@@ -14,7 +14,6 @@ app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json())
 
 app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
 
 require('./auth').init(app)
 
