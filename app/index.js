@@ -2,7 +2,7 @@ const express = require('express');
 const bodyparser = require('body-parser')
 const path = require('path');
 const exphbs = require('express-handlebars')
-const FrontEnd = require('./frontend')
+import { FrontEnd } from './frontend';
 
 const config = require('../config')
 const app = express();
