@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "start-win": "set NODE_ENV=production && .\\node_modules\\.bin\\babel-node --presets react,es2015 .\\index.js",
     "db": "node app/database/schema.js"
   },
   "repository": {
