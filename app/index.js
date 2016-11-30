@@ -9,7 +9,7 @@ const RedisStore = require('connect-redis')(session)
 const config = require('../config')
 const app = express();
 
-app.use(express.static('assets'))
+app.use(express.static('static'))
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json())
 
